@@ -1,0 +1,11 @@
+{
+  "name": "easyquestionsnodejs",
+  "version": "1.0.0",
+  "description": "",
+  "main": "BranchSums.js",
+  "scripts": {
+    "test": "./node_modules/mocha/bin/mocha"
+  },
+  "author": "Haomin",
+  "license": "MIT"
+}
