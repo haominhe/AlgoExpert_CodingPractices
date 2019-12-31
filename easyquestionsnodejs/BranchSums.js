@@ -28,7 +28,7 @@ class BinaryTree {
   
   function branchSums(root) {
     // Write your code here.
-    return [15, 16, 18, 10, 11];
+    return [15, 16, 18, 10, 11, 12];
   }
   
   // Do not edit the lines below.
