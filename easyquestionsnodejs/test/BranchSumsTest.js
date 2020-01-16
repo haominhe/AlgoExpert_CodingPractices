@@ -1,6 +1,6 @@
 // Test Command:
 // npm test ./test/BranchSumsTest.js
-const program = require('../BranchSums');
+const program = require('../BranchSums'); // name of the JS file
 const chai = require('chai');
 
 

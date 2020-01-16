@@ -16,23 +16,73 @@ Sample input:
    8 9 10
 
 Sample output: [15, 16, 18, 10, 11]
+
+Method 2
+O(n) time
+O(n) space
 */
 class BinaryTree {
-    constructor(value) {
-      this.value = value;
-      this.left = null;
-      this.right = null;
-      
-    }
+  constructor(value) {
+    this.value = value;
+    this.left = null;
+    this.right = null;
   }
-  
-  function branchSums(root) {
-    // Write your code here.
-    return [15, 16, 18, 10, 11, 12];
+}
+
+function branchSums(root) {
+  // Method 1
+  // var tree = [];
+  // traverse(tree, 0, [root.value], root.left, root.right);
+
+  // const output = []
+  // tree.forEach((branch) => {
+  //   const sum = branch.reduce((acc, curr) => acc + curr, 0);
+  //   output.push(sum);
+  // })
+  // return output;
+
+  // Method 2
+  const sums = [];
+  calculateBrachSum(root, 0, sums);
+  return sums;
+}
+
+// Method 1
+function traverse(tree, index, branch, left, right) {
+  if (left && right) {
+    const newBranch = JSON.parse(JSON.stringify(branch));
+    branch.push(left.value);
+    traverse(tree, index, branch, left.left, left.right);
+    newBranch.push(right.value);
+    tree.push(newBranch)
+    traverse(tree, index + 1, newBranch, right.left, right.right);
+  } else if (left && !right) {
+    branch.push(left.value);
+    traverse(tree, index, branch, left.left, left.right);
+  } else if (!left && right) {
+    branch.push(right.value);
+    traverse(tree, index, branch, right.left, right.right);
+  } else if (index === 0) {
+    tree.splice(index, 0, branch);
   }
-  
-  // Do not edit the lines below.
-  exports.BinaryTree = BinaryTree;
-  exports.branchSums = branchSums;
-  
-  
+}
+
+// Method 2
+function calculateBrachSum(node, runningSum, sums) {
+  if (!node) {
+    return;
+  }
+  runningSum = runningSum + node.value;
+
+  if (!node.left && !node.right) {
+    sums.push(runningSum);
+    return;
+  }
+
+  calculateBrachSum(node.left, runningSum, sums);
+  calculateBrachSum(node.right, runningSum, sums);
+}
+
+exports.BinaryTree = BinaryTree;
+exports.branchSums = branchSums;
+
