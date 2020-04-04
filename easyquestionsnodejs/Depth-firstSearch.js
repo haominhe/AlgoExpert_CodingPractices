@@ -6,5 +6,10 @@ empty array, traverses the tree using the Depth-first Search approach (specifica
 navigating the tree from left to right), stores all of the nodes' names in the input array, and
 returns it.
 
+Sample Input:
+graph = A
+    B   C   D
+   E  F      G H
+     I J     K
 
  */
