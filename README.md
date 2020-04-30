@@ -1,2 +1,2 @@
-# AlgoExpert_CodingPractices
-Solving popular algorithm problems from AlgoExpert website.
+# Self_CodingPractices
+Solving popular algorithm problems.
